@@ -43,13 +43,6 @@ public class RadioTest {
         Assertions.assertEquals(0, radioman.getCurrentStation());
     }
 
-    //@Test
-    //void shouldOverMaxStation2() {
-     //   radioman.setCurrentStation(10);
-     //   radioman.nextStation();
-      //  assertEquals(1, radioman.getCurrentStation());
-    //}
-
     @Test
     void shouldPrevStation() {
         radioman.setCurrentStation(4);
