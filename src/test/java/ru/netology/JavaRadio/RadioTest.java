@@ -2,6 +2,7 @@ package ru.netology.JavaRadio;
 
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
+
 import static org.junit.jupiter.api.Assertions.*;
 
 class RadioTest {
@@ -114,7 +115,7 @@ class RadioTest {
     }
 
     @Test
-    void shouldBeforeinVolume2() {
+    void shouldBeforeMinVolume2() {
         radioman.setCurrentVolume(-1);
         radioman.decreaseVolume();
         assertEquals(0, radioman.getCurrentVolume());
