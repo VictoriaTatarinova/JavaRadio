@@ -2,12 +2,20 @@ package ru.netology.JavaRadio;
 
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
+
 import static org.junit.jupiter.api.Assertions.*;
 
 class RadioTest {
 
     Radio radioman = new Radio(10);
     Radio radioman2 = new Radio();
+
+    @Test
+    void shouldSetStationNew() {
+
+        radioman2.setCurrentStation(15);
+        Assertions.assertEquals(0, radioman2.getCurrentStation());
+    }
 
     @Test
     void shouldChangeStation() {
