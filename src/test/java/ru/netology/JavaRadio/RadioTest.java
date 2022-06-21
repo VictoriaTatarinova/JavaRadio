@@ -2,12 +2,12 @@ package ru.netology.JavaRadio;
 
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
-
 import static org.junit.jupiter.api.Assertions.*;
 
-public class RadioTest {
+class RadioTest {
 
-    Radio radioman = new Radio();
+    Radio radioman = new Radio(10);
+    Radio radioman2 = new Radio();
 
     @Test
     void shouldChangeStation() {
@@ -31,9 +31,9 @@ public class RadioTest {
 
     @Test
     void shouldNextStation() {
-        radioman.setCurrentStation(6);
+        radioman.setCurrentStation(9);
         radioman.nextStation();
-        Assertions.assertEquals(7, radioman.getCurrentStation());
+        Assertions.assertEquals(0, radioman.getCurrentStation());
     }
 
     @Test
@@ -44,10 +44,17 @@ public class RadioTest {
     }
 
     @Test
+    void sholdOverMaxStation2() {
+        radioman.setCurrentStation(10);
+        radioman.nextStation();
+        Assertions.assertEquals(1, radioman.getCurrentStation());
+    }
+
+    @Test
     void shouldPrevStation() {
-        radioman.setCurrentStation(4);
+        radioman.setCurrentStation(9);
         radioman.prevStation();
-        Assertions.assertEquals(3, radioman.getCurrentStation());
+        Assertions.assertEquals(8, radioman.getCurrentStation());
     }
 
     @Test
@@ -80,23 +87,23 @@ public class RadioTest {
 
     @Test
     void shouldOverMaxVolume1() {
-        radioman.setCurrentVolume(10);
+        radioman.setCurrentVolume(100);
         radioman.increaseVolume();
-        Assertions.assertEquals(10, radioman.getCurrentVolume());
+        Assertions.assertEquals(100, radioman.getCurrentVolume());
     }
 
     @Test
     void shouldOverMaxVolume2() {
-        radioman.setCurrentVolume(11);
+        radioman.setCurrentVolume(101);
         radioman.increaseVolume();
         Assertions.assertEquals(1, radioman.getCurrentVolume());
     }
 
     @Test
     void shouldDecreaseVolume() {
-        radioman.setCurrentVolume(6);
+        radioman.setCurrentVolume(60);
         radioman.decreaseVolume();
-        Assertions.assertEquals(5, radioman.getCurrentVolume());
+        Assertions.assertEquals(59, radioman.getCurrentVolume());
     }
 
     @Test
