@@ -8,20 +8,25 @@ import static org.junit.jupiter.api.Assertions.*;
 class RadioTest {
 
     Radio radioman = new Radio(10);
-    Radio radioman2 = new Radio();
+    Radio radioman2 = new Radio(20);
+    Radio radioman3 = new Radio();
 
     @Test
     void shouldSetStationNew() {
-
         radioman2.setCurrentStation(15);
-        Assertions.assertEquals(0, radioman2.getCurrentStation());
+        Assertions.assertEquals(15, radioman2.getCurrentStation());
     }
 
     @Test
     void shouldChangeStation() {
-        Assertions.assertEquals(0, radioman.getCurrentStation());
         radioman.setCurrentStation(5);
         Assertions.assertEquals(5, radioman.getCurrentStation());
+    }
+
+    @Test
+    void shouldChangeStation2() {
+        radioman3.setCurrentStation(5);
+        Assertions.assertEquals(5, radioman3.getCurrentStation());
     }
 
     @Test
@@ -52,7 +57,7 @@ class RadioTest {
     }
 
     @Test
-    void sholdOverMaxStation2() {
+    void shouldOverMaxStation2() {
         radioman.setCurrentStation(10);
         radioman.nextStation();
         Assertions.assertEquals(1, radioman.getCurrentStation());
@@ -122,7 +127,7 @@ class RadioTest {
     }
 
     @Test
-    void shouldBeforeinVolume2() {
+    void shouldBeforeMinVolume2() {
         radioman.setCurrentVolume(-1);
         radioman.decreaseVolume();
         assertEquals(0, radioman.getCurrentVolume());

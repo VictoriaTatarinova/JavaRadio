@@ -16,6 +16,7 @@ public class Radio {
 
     public Radio(int amountStation) {
         this.amountStation = amountStation;
+        this.maxStation = amountStation - 1;
     }
 
     public int getCurrentStation() {
@@ -29,6 +30,7 @@ public class Radio {
         }
         this.currentStation = currentStation;
     }
+
 
     public void nextStation() {
         if (currentStation >= maxStation) {
